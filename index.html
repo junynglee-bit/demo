@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D-Day Counter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>D-Day Counter</h1>
+      <p id="today" class="today"></p>
+    </header>
+
+    <form id="event-form" class="card">
+      <div class="field">
+        <label for="title">이름</label>
+        <input id="title" type="text" placeholder="예: 시험, 여행, 생일" maxlength="40" required />
+      </div>
+      <div class="field">
+        <label for="date">날짜</label>
+        <input id="date" type="date" required />
+      </div>
+      <div class="options">
+        <label><input id="repeat" type="checkbox" /> 매년 반복</label>
+        <label><input id="count-from-one" type="checkbox" /> 시작일을 1일로 (기념일)</label>
+      </div>
+      <button type="submit">추가</button>
+    </form>
+
+    <p id="empty" class="empty">아직 등록된 D-Day가 없어요. 위에서 추가해 보세요.</p>
+    <ul id="event-list" class="event-list"></ul>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

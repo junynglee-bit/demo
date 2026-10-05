@@ -1,0 +1,117 @@
+:root {
+  --bg: #f5f6fa;
+  --card: #ffffff;
+  --text: #1f2330;
+  --muted: #6b7280;
+  --border: #e3e5ec;
+  --accent: #4f46e5;
+  --accent-text: #ffffff;
+  --today: #e11d48;
+  --past: #9ca3af;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12141a;
+    --card: #1c1f27;
+    --text: #e8eaf0;
+    --muted: #9aa1b0;
+    --border: #2c303b;
+    --accent: #818cf8;
+    --accent-text: #12141a;
+    --today: #fb7185;
+    --past: #6b7280;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+header h1 { margin: 0; font-size: 1.75rem; }
+.today { margin: 4px 0 24px; color: var(--muted); }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+#event-form { display: grid; gap: 12px; }
+.field { display: grid; gap: 4px; }
+.field label { font-size: 0.875rem; color: var(--muted); }
+
+input[type="text"], input[type="date"] {
+  font: inherit;
+  color: inherit;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.options { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.9rem; }
+
+button[type="submit"] {
+  font: inherit;
+  font-weight: 600;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: 0;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.empty { color: var(--muted); text-align: center; margin-top: 32px; }
+
+.event-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 10px; }
+
+.event {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 12px 14px 16px;
+}
+
+.event-body { flex: 1; min-width: 0; }
+.event-body h3 { margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+.event-meta { margin: 2px 0 0; font-size: 0.8rem; color: var(--muted); }
+
+.event-badge {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.event.is-today .event-badge { color: var(--today); }
+.event.is-past .event-badge { color: var(--past); }
+
+.event-remove {
+  font-size: 1.25rem;
+  line-height: 1;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.event-remove:hover { background: var(--bg); color: var(--text); }
